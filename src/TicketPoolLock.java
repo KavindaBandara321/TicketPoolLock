@@ -36,7 +36,7 @@ public class TicketPoolLock implements TicketPool {
             ticketQueue.offer(ticket);
             noOfTicketsOffered++;
             System.out.println(Thread.currentThread().getName() + " added TicketNumber: " + ticket.getTicketId() + ", Vendor: " + ticket.getVendor() + ", Event: " + ticket.getEvent());
-            queueFull.signalAll();
+            queueEmpty.signalAll();
         } finally {
             writeLock.unlock();
         }
@@ -50,7 +50,7 @@ public class TicketPoolLock implements TicketPool {
             writeLock.lock();
             while (ticketQueue.isEmpty()) {
                 try {
-                    queueFull.await();
+                    queueEmpty.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

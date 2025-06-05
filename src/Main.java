@@ -5,12 +5,26 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        final int maximumVendors = 10;
-        final int maximumCustomer = 10;
-        final int maximumReaders = 10;
-        final int maximumWriters = 5;
 
         Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter maximum number of Vendors: ");
+        int maximumVendors = Integer.parseInt(scanner.nextLine().trim());
+
+        System.out.print("Enter maximum number of Customers: ");
+        int maximumCustomer = Integer.parseInt(scanner.nextLine().trim());
+
+        System.out.print("Enter maximum number of Readers: ");
+        int maximumReaders = Integer.parseInt(scanner.nextLine().trim());
+
+        System.out.print("Enter maximum number of Writers: ");
+        int maximumWriters = Integer.parseInt(scanner.nextLine().trim());
+
+        System.out.println("Vendors: " + maximumVendors);
+        System.out.println("Customers: " + maximumCustomer);
+        System.out.println("Readers: " + maximumReaders);
+        System.out.println("Writers: " + maximumWriters);
+
         System.out.print("Enter the Ticket Pool size: ");
 
         int poolSize=3;
