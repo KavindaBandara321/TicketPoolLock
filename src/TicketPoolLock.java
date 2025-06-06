@@ -24,6 +24,7 @@ public class TicketPoolLock implements TicketPool {
     @Override
     public void addTicket(Ticket ticket) {
         try {
+
             writeLock.lock();
             while (ticketQueue.size() == this.maxSize) {
                 try {

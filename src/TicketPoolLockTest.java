@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TicketPoolSyancTest {
+public class TicketPoolLockTest {
     @Test
     public void testAddAndPurchaseTicket() {
         TicketPoolLock ticketPool = new TicketPoolLock(1);

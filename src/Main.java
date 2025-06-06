@@ -79,7 +79,9 @@ public class Main {
                     if (vendors.size() < maximumVendors) {
                         Vendor newVendor = new Vendor(ticketPool, "Vendor-" + vendorCounter);
                         vendors.add(newVendor);
-                        new Thread(newVendor, "Vendor: " + vendorCounter).start();
+                        Thread vendorThread = new Thread(newVendor, "Vendor: " + vendorCounter);
+                        vendorThread.start();
+
                         vendorCounter++;
                         System.out.println("Vendor successfully added.");
                     } else {
@@ -90,7 +92,9 @@ public class Main {
                     if (Customers.size() < maximumCustomer) {
                         Customer newCustomer = new Customer(ticketPool);
                         Customers.add(newCustomer);
-                        new Thread(newCustomer, "Customer: " + CustomerCounter).start();
+                        Thread customerThread = new Thread(newCustomer, "Customer: " + CustomerCounter);
+                        customerThread.start();
+
                         CustomerCounter++;
                         System.out.println("Customer successfully added.");
                     }
@@ -103,7 +107,9 @@ public class Main {
                     if (readers.size() < maximumReaders) {
                         Reader newReader = new Reader(ticketPool);
                         readers.add(newReader);
-                        new Thread(newReader, "Reader: " + readerCounter).start();
+                        Thread readerThread = new Thread(newReader, "Reader: " + readerCounter);
+                        readerThread.start();
+
                         readerCounter++;
                         System.out.println("Reader successfully added.");
                     }else {
@@ -114,7 +120,9 @@ public class Main {
                     if (writers.size() < maximumWriters) {
                         Writer newWriter = new Writer(ticketPool, "Writer-" + writerCounter);
                         writers.add(newWriter);
-                        new Thread(newWriter, "Writer: " + writerCounter).start();
+                        Thread writerThread= new Thread(newWriter, "Writer: " + writerCounter);
+                        writerThread.start();
+
                         writerCounter++;
                         System.out.println("Writer successfully added.");
                     } else {
