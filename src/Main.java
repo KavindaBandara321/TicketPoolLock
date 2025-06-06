@@ -165,10 +165,26 @@ public class Main {
                     ticketPool.printTicketPoolStatus();
                     break;
                 case 0:
-                    for (Vendor v : vendors) v.stop();
-                    for (Customer c : Customers) c.stop();
-                    for (Reader r : readers) r.stop();
-                    for (Writer w : writers) w.stop();
+                    System.out.println("Stopping all Vendor threads...");
+                    for (Vendor vendor : vendors) {
+                        vendor.stop();
+                    }
+
+                    System.out.println("Stopping all Customer threads...");
+                    for (Customer customer : Customers) {
+                        customer.stop();
+                    }
+
+                    System.out.println("Stopping all Reader threads...");
+                    for (Reader reader : readers) {
+                        reader.stop();
+                    }
+
+                    System.out.println("Stopping all Writer threads...");
+                    for (Writer writer : writers) {
+                        writer.stop();
+                    }
+
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
@@ -179,17 +195,6 @@ public class Main {
                     break;
                 default:
                     System.out.println("Invalid command");
-            }
-
-            if (vendors.isEmpty() && Customers.isEmpty() && readers.isEmpty() && writers.isEmpty()) {
-                System.out.println("\nNo active threads left. Wrapping things up...");
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("Goodbye! Exiting now...");
-                IsRunning = false;
             }
         }
     }
